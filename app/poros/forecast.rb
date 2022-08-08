@@ -3,12 +3,14 @@ class Forecast
     @data = data
   end
 
-  def attributes(number_of_days, number_of_hours) {
-    current_weather: Forecast.current,
-    daily_weather: Forecast.daily(number_of_days),
-    hourly_weather: Forecast.hourly(number_of_hours)
-  }
-  end
+  # def attributes(number_of_days, number_of_hours) 
+  #   attributes = {
+  #   current_weather: Forecast.current,
+  #   daily_weather: Forecast.daily(number_of_days),
+  #   hourly_weather: Forecast.hourly(number_of_hours)
+  # }
+  # binding.pry
+  # end
 
   def current
     current = @data[:current]
