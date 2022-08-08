@@ -1,4 +1,4 @@
-class LocationService
+class LocationService < BaseService
 
   def self.get_coords(location)
     response = location_conn.get("/geocoding/v1/address?location=#{location}")

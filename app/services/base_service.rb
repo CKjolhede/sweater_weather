@@ -7,8 +7,8 @@ class BaseService
   end
 
   def self.forecast_conn
-     Faraday.new('https://api.openweathermap.org/data/2.5/onecall') do |rec|
+    Faraday.new('https://api.openweathermap.org/data/2.5/') do |req|
         req.params['appid'] = ENV['forecast_api_key']
-     end
+    end
   end
 end
