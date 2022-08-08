@@ -20,8 +20,16 @@ RSpec.describe "Munchies Request" do
     expect(munchies[:data][:attributes][:restaurant]).to have_key(:address)
 
     expect(munchies[:data][:attributes]).to_not have_key(:alias)
-
+    expect(munchies[:data][:attributes]).to_not have_key(:minutely)
   end
 
+  context 'edge cases' do
+    it 'invalid parameters result in a status of 404' do
+
+      get '/api/v1/munchies', params: {term: "chinese", where: "Denver,CO"}
+      expect(response).to_not be_successful
+      expect(response.status).to eq(404)
+    end
+  end
   
 end
