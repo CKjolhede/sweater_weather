@@ -2,12 +2,11 @@ require 'rails_helper'
 
 RSpec.describe "User", type: :model do
 
-    describe "validations" do
-    
-        it { should have_secure_password}
-        it { should have_secure_token}
-        
-        it {should validate_presence_of :email}
-        it {should validate_presence_of :password_digest}
-      end
-    end 
+    context "validations" do
+      subject { User.create(email: "5@5.com", password: "pass", password_confirmation: "pass")}
+      it { should validate_presence_of (:email)}
+      it { should validate_presence_of (:password_digest)}
+      it { should have_secure_password }
+      it { should have_secure_token }
+    end
+end
