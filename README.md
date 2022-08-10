@@ -74,4 +74,44 @@ Business Search Endpoint - Yelp Fusion
 Yelp's API exposes search to 3rd party developers.
 openweathermap.orgopenweathermap.org
 Weather API - OpenWeatherMap
-Simple and fast and free weather API from OpenWeatherMap you have access to current weather data, hourly, 5- and 16-day forecasts. Historical weather data for 40 years back for any coordinate. Weather maps, UV Index, air pollution and historical data
+Simple and fast and free weather API from OpenWeatherMap you have access to current weather data, hourly, 5- and 16-day forecasts. Historical weather data for 40 years back for any coordinate. Weather maps, UV Index, air pollution and historical data>> Rack::Utils::HTTP_STATUS_CODES
+
+
+
+{100=>"Continue",
+ 101=>"Switching Protocols",
+ 102=>"Processing",
+ 202=>"Accepted",
+ 203=>"Non-Authoritative Information",
+ 204=>"No Content",
+ 205=>"Reset Content",
+ 206=>"Partial Content",
+ 207=>"Multi-Status",
+ 208=>"Already Reported",
+ 226=>"IM Used",
+ 300=>"Multiple Choices",
+ 301=>"Moved Permanently",
+ 302=>"Found",
+ 303=>"See Other",
+ 304=>"Not Modified",
+ 305=>"Use Proxy",
+ 307=>"Temporary Redirect",
+ 308=>"Permanent Redirect",
+ 
+
+
+  
+ 500=>"Internal Server Error",
+ 501=>"Not Implemented",
+ 502=>"Bad Gateway",
+ 503=>"Service Unavailable",
+ 504=>"Gateway Timeout",
+ 505=>"HTTP Version Not Supported",
+ 506=>"Variant Also Negotiates",
+ 507=>"Insufficient Storage",
+ 508=>"Loop Detected",
+ 510=>"Not Extended",
+ 511=>"Network Authentication Required"}
+
+ curl --header "Content_Type: application/json" --request POST --data '{"key":"value", "key2":"value2"}' http://localhost:3000 -v
+
