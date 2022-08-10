@@ -11,4 +11,10 @@ class BaseService
         req.params['appid'] = ENV['forecast_api_key']
     end
   end
+
+  def self.munchies_conn
+    Faraday.new('https://api.yelp.com/v3/businesses/search') do |req|
+      req.headers['Authorization'] = ENV['yelp_api_key']
+    end
+  end
 end

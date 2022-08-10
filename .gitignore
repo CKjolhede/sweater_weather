@@ -27,4 +27,7 @@
 
 /log
 /coverage
--DS.Store_
+.DS_Store
+.vscode/
+.gitignore_global
+

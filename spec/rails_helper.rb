@@ -72,7 +72,3 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
-
-VCR.configure do |c|
-  c.filter_sensitive_data('<api_key>') { ENV['api_key'] }
-end

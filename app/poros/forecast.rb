@@ -1,6 +1,10 @@
 class Forecast
+  attr_reader :temperature, :conditions
+
   def initialize(data)
     @data = data
+    @temperature = current[:temperature]
+    @conditions = current[:conditions]
   end
 
   # def attributes(number_of_days, number_of_hours) 
