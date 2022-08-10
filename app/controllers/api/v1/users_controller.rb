@@ -10,7 +10,7 @@ class Api::V1::UsersController < ApplicationController
       render json: user.errors.full_messages.to_sentence, status: "400"
     end
   end
-  
+   
   private
 
     def user_params

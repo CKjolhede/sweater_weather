@@ -115,3 +115,30 @@ Simple and fast and free weather API from OpenWeatherMap you have access to curr
 
  curl --header "Content_Type: application/json" --request POST --data '{"key":"value", "key2":"value2"}' http://localhost:3000 -v
 
+
+
+**REQUEST 
+
+        Origin name
+        Dest name, 
+        APikey..........AUTHORIZATION\
+                                      \               
+                                      REQUEST TO MAPQ
+                                  Lat/lng           travel time
+                                    |                         |
+                                    |                        /
+                                OPENWEATHER         CALCULATIONS AND CONVERSIONS
+                                          \         /
+                                           \       /
+                                         COMPILE DATA
+                                          SERIALIZE
+                                        SEND RESPONSE 
+
+                                          ID: NULL
+                                          TYPE ROADTRIP
+                                          ATTRIBUTES:
+                                              START_CITY
+                                              END_CITY
+                                              TRAVEL_TIME
+                                             WEATHER_AT_ETA
+                                                  TEMPERATURE                                       CONDITIONS                           |

@@ -9,7 +9,7 @@ class Api::V1::SessionsController < ApplicationController
      
     else
      
-      render json: { error: "Failed to provide valid information."}, status: "401"
+      render json: { Unauthorized: "Failed to provide valid information."}, status: "401"
     end
   end
 
