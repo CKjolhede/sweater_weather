@@ -2,12 +2,13 @@ class Api::V1::RoadTripController < ApplicationController
 # before_action :auth_and_auth
 
   def create
+  
     route = LocationFacade.directions(params[:origin], params[:destination])
       if route.travel_time == 'impossible route'
         render json: RoadTripSerializer.impossible(params[:origin], params[:destination]), status: "201"
       elsif
-        arrival_forecast = OpenWeatherFacade.get_forecast(route.destination_lat, route.destination_lng)
-        render json: RoadTripSerializer.format(params[:origin], params[:destination], route, arrival_forecast)
+        arrival_forecast = ForecastFacade.get_forecast(route.destination_lat, route.destination_lng)
+        render json: RoadTripSerializer.format_roadtrip(params[:origin], params[:destination], route, arrival_forecast)
       else
         render json: { Unauthorized: "Unprocessable Entity" }, status: "422"
       end

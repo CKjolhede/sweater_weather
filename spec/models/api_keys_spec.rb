@@ -1,14 +1,3 @@
-# require "rails_helper"
-
-# RSpec.describe 'ApiKeys' do
-#   describe "relationships and validations" do
-#     # it {should belong_to (:user)}
-    
-#     # it {should validate_uniqueness_of (:token).case_sensitive}    
-  
-#   end
-# end
-
 require 'rails_helper'
 
 RSpec.describe ApiKey, type: :model do

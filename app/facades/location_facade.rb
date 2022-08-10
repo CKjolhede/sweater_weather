@@ -3,12 +3,12 @@ class LocationFacade
   def self.get_coords(location)
     json = LocationService.get_coords(location)
     Location.new(json[:results].first[:locations].first[:latLng])
-
-  
-    def get_directions(origin, destination)
-      data = MapQuestService.get_route(origin, destination)
-      data[:route][:formattedTime]
-    end
   end
+  
+    def self.directions(origin, destination)
+      json = LocationService.get_directions(origin, destination)
+      # binding.pry
+      Route.new(json[:route])
+    end
 end
 
