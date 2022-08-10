@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe ForecastFacade do
- xit "returns forecast" do
-   data = {:lat=>39.738453, :lng=>-104.984853}
-   ForecastFacade.get_forecast(data[:lat], data[:lng])
+ it "returns forecast" do
+  data = {:lat=>39.738453, :lng=>-104.984853}
+  forecast = ForecastFacade.get_forecast(data[:lat], data[:lng])
    
-#binding.pry
+
    expect(forecast).to_not have_key(:minutely)
    expect(forecast[:current]).to have_key(:dt)
    expect(forecast[:current]).to have_key(:sunrise)

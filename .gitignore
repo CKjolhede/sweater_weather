@@ -28,3 +28,4 @@
 /log
 /coverage
 .DS_Store
+.vscode/

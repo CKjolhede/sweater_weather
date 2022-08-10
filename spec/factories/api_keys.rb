@@ -1,7 +1,6 @@
 FactoryBot.define do
   factory :api_key do
-    bearer_id { 1 }
-    bearer_type { "MyString" }
+    user_id { 1 }
     token { "" }
   end
 end

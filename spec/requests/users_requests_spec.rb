@@ -5,7 +5,7 @@ RSpec.describe "Users", type: :request do
     # let!(user) {User.create('email': 'whatever@example.com', 'password': "password") }
     
     context 'happy path' do
-      it 'creates a new user and users auth_token when requests include valid params' do
+     xit 'creates a new user and users auth_token when requests include valid params' do
         params = {
           "email": 'whatever@example.com',
           "password": 'password',
@@ -17,8 +17,8 @@ RSpec.describe "Users", type: :request do
         }
         headers = JSON.generate(headers)
         params = JSON.generate(params)
-
-        post 'api/v1/users', headers: headers, params: params
+        
+        post '/api/v1/users', headers[:headers], params[:params]
 
         expect(response.status).to eq(201)
           results = JSON.parse(response.body, symbolize_names: true)[:data]

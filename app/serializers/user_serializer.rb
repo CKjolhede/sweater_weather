@@ -1,16 +1,16 @@
 class UserSerializer
   
-  def self.user_data(user)
-    binding.pry
-     {  "data": 
+  def self.format(user, api_key)
+  
+  {  data: 
         {
-          "type": "users",
-          "id": user.id,
-          "attributes": 
+          type: 'users',
+          id: user.id,
+          attributes: 
           {
-            "email": user.email,
-            "api_key": user.auth_token
-          }
+            email: user.email,
+            api_key: api_key.token
+                    }
         } 
       }
     end
