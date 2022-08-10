@@ -29,3 +29,5 @@
 /coverage
 .DS_Store
 .vscode/
+.gitignore_global
+
