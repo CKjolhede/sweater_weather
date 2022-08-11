@@ -7,8 +7,8 @@ class LocationFacade
   
     def self.directions(origin, destination)
       json = LocationService.get_directions(origin, destination)
+      wip = Route.new(json[:route])
       # binding.pry
-      Route.new(json[:route])
     end
 end
 

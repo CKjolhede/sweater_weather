@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'forecast request' do
   context "happy paths" do
-    it 'return the forecast with all appropriate attributes' do
+    it 'return the forecast with all appropriate attributes', :vcr do
+   
       headers = {
         'CONTENT_TYPE' => 'application/json',
         'ACCEPT' => 'application/json'
@@ -40,11 +41,13 @@ RSpec.describe 'forecast request' do
         expect(forecast[:data][:attributes][:daily_weather][0]).to have_key(:min_temp)
         expect(forecast[:data][:attributes][:daily_weather][0]).to have_key(:conditions)
         expect(forecast[:data][:attributes][:daily_weather][0]).to have_key(:icon)
+      
     end
-  end 
+  end
+
 
   context "sad paths" do
-    it 'show that unselected attributes are not returned' do
+    it 'show that unselected attributes are not returned', :vcr do
       headers = {
         'CONTENT_TYPE' => 'application/json',
         'ACCEPT' => 'application/json'
@@ -92,7 +95,7 @@ RSpec.describe 'forecast request' do
   end
 
   context 'edge cases' do
-    it 'invalid parameters result in a status of 404' do
+    it 'invalid parameters result in a status of 404', :vcr do
         headers = {
         'CONTENT_TYPE' => 'application/json',
         'ACCEPT' => 'application/json'
