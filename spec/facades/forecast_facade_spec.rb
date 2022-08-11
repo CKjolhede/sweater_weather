@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ForecastFacade do
- it "returns forecast" do
+ it "returns forecast", :vcr do
   data = {:lat=>39.738453, :lng=>-104.984853}
   forecast = ForecastFacade.get_forecast(data[:lat], data[:lng])
 

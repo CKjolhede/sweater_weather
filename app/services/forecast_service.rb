@@ -4,7 +4,7 @@ class ForecastService < BaseService
 
     response = forecast_conn.get("onecall?lat=#{lat}&lon=#{long}&exclude=minutely,alerts&units=imperial")
 
-  forecast = JSON.parse(response.body, symbolize_names: true)
+    binding.pry
   end
 
 end
