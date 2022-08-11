@@ -1,6 +1,6 @@
 class RoadTripSerializer
-  def self.format_roadtrip(from, to, route, arrival_forecast)
-    weather = determine_weather(route, arrival_forecast)
+  def self.format_roadtrip(from, to, route) #, arrival_forecast)
+    # weather = determine_weather(route, arrival_forecast)
     {
       data: {
         id: nil,
@@ -8,11 +8,11 @@ class RoadTripSerializer
         attributes: {
           start_city: from,
           end_city: to,
-          travel_time: route.travel_time,
-          weather_at_eta: {
-            temperature: weather[:temperature],
-            conditions: weather[:conditions]
-          }
+          travel_time: route.travel_time #,
+          # weather_at_eta: {
+          #   temperature: weather[:temperature],
+          #   conditions: weather[:conditions]
+          # }
         }
       }
     }
