@@ -13,5 +13,5 @@ class UserSerializer
                     }
         } 
       }
-    end
   end
+end

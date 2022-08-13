@@ -6,8 +6,28 @@ class LocationService < BaseService
     JSON.parse(response.body, symbolize_names: true)
   end
 
-  def self.get_directions( to, from)
-      response = location_conn.get("/directions/v2/route?from=#{from}&to=#{to}")
-        JSON.parse(response.body, symbolize_names: true)
-  end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def self.get_directions( to, from)
+#     response = location_conn.get("/directions/v2/route?from=#{from}&to=#{to}")
+#       JSON.parse(response.body, symbolize_names: true)
+# end

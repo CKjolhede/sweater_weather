@@ -15,6 +15,7 @@ RSpec.describe 'forecast request' do
       expect(forecast).to be_a Hash
       expect(forecast[:data]).to have_key(:id)
       expect(forecast[:data]).to have_key(:type)
+      expect(forecast[:data][:type]).to eq("forecast")
       expect(forecast[:data]).to have_key(:attributes)
       expect(forecast[:data][:attributes]).to have_key(:current_weather)
         expect(forecast[:data][:attributes][:current_weather]).to have_key(:datetime)
@@ -41,10 +42,30 @@ RSpec.describe 'forecast request' do
         expect(forecast[:data][:attributes][:daily_weather][0]).to have_key(:min_temp)
         expect(forecast[:data][:attributes][:daily_weather][0]).to have_key(:conditions)
         expect(forecast[:data][:attributes][:daily_weather][0]).to have_key(:icon)
-      
-    end
-  end
+        expect(forecast[:data][:attributes][:current_weather][:datetime]).to be_a String
+        expect(forecast[:data][:attributes][:current_weather][:sunrise]).to be_a String
+        expect(forecast[:data][:attributes][:current_weather][:sunset]).to be_a String
+        expect(forecast[:data][:attributes][:current_weather][:temperature]).to be_a Float
+        expect(forecast[:data][:attributes][:current_weather][:feels_like]).to be_a Float
+        expect(forecast[:data][:attributes][:current_weather][:humidity]).to be_an Integer
+        expect(forecast[:data][:attributes][:current_weather][:uvi]).to be_a Float
+        expect(forecast[:data][:attributes][:current_weather][:visibility]).to be_an Integer
+        expect(forecast[:data][:attributes][:current_weather][:conditions]).to be_a(String)
+        expect(forecast[:data][:attributes][:current_weather][:icon]).to be_a(String)
 
+        expect(forecast[:data][:attributes][:hourly_weather][0][:time]).to be_a(String)
+        expect(forecast[:data][:attributes][:hourly_weather][0][:temperature]).to be_a Float
+        expect(forecast[:data][:attributes][:hourly_weather][0][:icon]).to be_a(String)
+        expect(forecast[:data][:attributes][:hourly_weather][0][:conditions]).to be_a(String)
+
+        expect(forecast[:data][:attributes][:daily_weather][0][:sunrise]).to be_a(String)
+        expect(forecast[:data][:attributes][:daily_weather][0][:sunset]).to be_a(String)
+        expect(forecast[:data][:attributes][:daily_weather][0][:max_temp]).to be_a Float
+        expect(forecast[:data][:attributes][:daily_weather][0][:min_temp]).to be_a Float
+        expect(forecast[:data][:attributes][:daily_weather][0][:conditions]).to be_a(String)
+        expect(forecast[:data][:attributes][:daily_weather][0][:icon]).to be_a(String)
+      end
+  end
 
   context "sad paths" do
     it 'show that unselected attributes are not returned', :vcr do
@@ -91,6 +112,7 @@ RSpec.describe 'forecast request' do
         expect(forecast[:data][:attributes][:hourly_weather][0]).to_not have_key(:uvi)
       
         expect(forecast[:data][:attributes]).to_not have_key(:minutely)
+        expect(forecast[:data][:attributes]).to_not have_key(:alerts)
     end
   end
 
@@ -102,7 +124,6 @@ RSpec.describe 'forecast request' do
         }
       get '/api/v1/forecast', headers: headers, params: {refridgerator: "Denver"}
 
-      #expect(response).to_not be_successful
       expect(response.status).to eq(404)
     end
   end
